@@ -6,7 +6,7 @@ Este é um projeto Java que consiste em uma aplicação com duas partes: um serv
 
 Certifique-se de ter o Java JDK 22 e o Maven instalados em seu sistema.
 
-- [Java JDK 22](link-para-o-download-do-JDK22)
+- [Java JDK 22]
 - [Maven](https://maven.apache.org/download.cgi)
 
 ## Executando o Servidor
