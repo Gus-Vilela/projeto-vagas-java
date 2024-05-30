@@ -1,4 +1,4 @@
-package server.controllers;
+package server.controllers.Candidato;
 
 import com.google.gson.Gson;
 import server.hibernate.dao.CandidatoDao;
@@ -42,9 +42,13 @@ public class CadastrarCandidato {
     }
 
     private static boolean performCadastro(String nome, String email, String senha) {
-        CandidatoDao candidatoDao = new CandidatoDao();
-        Candidato candidato = new Candidato(nome, senha, email);
-        candidatoDao.save(candidato);
-        return true;
+        try {
+            CandidatoDao candidatoDao = new CandidatoDao();
+            Candidato candidato = new Candidato(nome, senha, email);
+            candidatoDao.save(candidato);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

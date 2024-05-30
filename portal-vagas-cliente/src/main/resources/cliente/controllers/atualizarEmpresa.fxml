@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="440.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cliente.controllers.AtualizarEmpresa">
+   <children>
+      <Label layoutX="229.0" layoutY="46.0" text="Atualizar Empresa">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cnpjInput" layoutX="185.0" layoutY="123.0" prefHeight="25.0" prefWidth="230.0" />
+      <TextField fx:id="senhaInput" layoutX="185.0" layoutY="172.0" prefHeight="25.0" prefWidth="230.0" />
+      <Label layoutX="192.0" layoutY="107.0" text="CNPJ:" />
+      <Label layoutX="190.0" layoutY="155.0" text="Senha:" />
+      <Button fx:id="btnAtualizar" layoutX="270.0" layoutY="379.0" mnemonicParsing="false" onAction="#onClickAtualizar" text="Atualizar" />
+      <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="165.0" layoutY="362.0" opacity="0.0" prefHeight="17.0" prefWidth="272.0" textAlignment="CENTER" textFill="RED" />
+      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickVoltar" text="Voltar" />
+      <TextField fx:id="razaoSocialInput" layoutX="186.0" layoutY="223.0" prefHeight="25.0" prefWidth="230.0" />
+      <Label layoutX="189.0" layoutY="206.0" text="Razão Social:" />
+      <TextField fx:id="descricaoInput" layoutX="187.0" layoutY="275.0" prefHeight="25.0" prefWidth="230.0" />
+      <Label layoutX="191.0" layoutY="258.0" text="Descrição:" />
+      <TextField fx:id="ramoInput" layoutX="188.0" layoutY="324.0" prefHeight="25.0" prefWidth="230.0" />
+      <Label layoutX="191.0" layoutY="308.0" text="Ramo:" />
+   </children>
+</AnchorPane>

@@ -1,4 +1,4 @@
-package server.controllers;
+package server.controllers.Candidato;
 
 import com.google.gson.Gson;
 import server.hibernate.dao.CandidatoDao;

@@ -2,16 +2,16 @@ package server.socket;
 
 import com.google.gson.Gson;
 import server.controllers.*;
-import server.hibernate.dao.CandidatoDao;
+import server.controllers.Candidato.*;
 import com.google.gson.reflect.TypeToken;
+import server.controllers.Empresa.*;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.lang.reflect.Type;
-import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.HashMap;
 import java.util.Map;
 
 class ClientHandler extends Thread {
@@ -71,6 +71,21 @@ class ClientHandler extends Thread {
                         break;
                     case "logout":
                         response = Logout.logout(receivedData, gson);
+                        break;
+                    case "cadastrarEmpresa":
+                        response = CadastrarEmpresa.cadastrarEmpresa(receivedData, gson);
+                        break;
+                    case "loginEmpresa":
+                        response = LoginEmpresa.loginEmpresa(receivedData, gson);
+                        break;
+                    case "visualizarEmpresa":
+                        response = VisualizarEmpresa.visualizarEmpresa(receivedData, gson);
+                        break;
+                    case "atualizarEmpresa":
+                        response = AtualizarEmpresa.atualizarEmpresa(receivedData, gson);
+                        break;
+                    case "apagarEmpresa":
+                        response = ApagarEmpresa.apagarEmpresa(receivedData, gson);
                         break;
                     default:
                         System.out.println("Operação não reconhecida");

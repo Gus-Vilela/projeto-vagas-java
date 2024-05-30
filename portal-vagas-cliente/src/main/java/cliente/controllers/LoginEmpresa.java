@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class LoginCandidato {
+public class LoginEmpresa {
     @FXML
     public TextField usuarioInput;
     @FXML
@@ -34,7 +34,7 @@ public class LoginCandidato {
 
     @FXML
     public void onClickCadastrar(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("cadastrarCandidato.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("cadastrarEmpresa.fxml"));
         Parent root = loader.load();
         Stage stage = (Stage) btnCadastrar.getScene().getWindow();
         stage.setScene(new Scene(root));
@@ -67,7 +67,7 @@ public class LoginCandidato {
             SingletonEchoClient client = SingletonEchoClient.getInstance();
 
             Map<String, Object> data = new HashMap<>();
-            data.put("operacao", "loginCandidato");
+            data.put("operacao", "loginEmpresa");
             data.put("email", usuarioInput.getText());
             data.put("senha", senhaInput.getText());
 
@@ -83,14 +83,14 @@ public class LoginCandidato {
 
                 if (
                         status == 200 && receivedData.get("operacao")!=null &&
-                        receivedData.get("operacao").equals("loginCandidato") &&
-                        receivedData.get("token") != null){
+                                receivedData.get("operacao").equals("loginEmpresa") &&
+                                receivedData.get("token") != null){
                     System.out.println("Login efetuado com sucesso");
 
                     Session.getInstance().setToken((String) receivedData.get("token"));
                     Session.getInstance().setEmail(usuarioInput.getText());
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("candidatoHome.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("empresaHome.fxml"));
                     Parent root = loader.load();
                     Stage stage = (Stage) btnLogin.getScene().getWindow();
                     stage.setScene(new Scene(root));

@@ -1,10 +1,9 @@
-package server.controllers;
+package server.controllers.Candidato;
 
 import com.google.gson.Gson;
 import server.hibernate.dao.CandidatoDao;
 import server.hibernate.models.Candidato;
 
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -24,7 +23,7 @@ public class LoginCandidato {
             status = 200;
             response.put("token", UUID.randomUUID().toString());
         } else {
-            response.put("mensagem", "E-mail ou senha inválidos");
+            response.put("mensagem", "Login ou senha incorretos");
         }
 
         response.put("status", status);

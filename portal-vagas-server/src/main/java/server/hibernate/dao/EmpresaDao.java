@@ -2,20 +2,22 @@ package server.hibernate.dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import server.hibernate.models.Candidato;
+import server.hibernate.models.Empresa;
 import server.hibernate.utils.HibernateUtil;
 
-public class CandidatoDao {
+public class EmpresaDao {
 
-    public Candidato get(int id) {
+    public Empresa get(int id) {
         try (Session session = HibernateUtil.getSession()) {
-            return session.get(Candidato.class, id);
+            return session.get(Empresa.class, id);
+        } catch (Exception e) {
+            return null;
         }
     }
 
-    public Candidato getByEmail(String email) {
+    public Empresa getByEmail(String email) {
         try (Session session = HibernateUtil.getSession()) {
-            return session.createQuery("from Candidato where email = :email", Candidato.class)
+            return session.createQuery("from Empresa where email = :email", Empresa.class)
                     .setParameter("email", email)
                     .uniqueResult();
         } catch (Exception e) {
@@ -23,11 +25,21 @@ public class CandidatoDao {
         }
     }
 
-    public void save(Candidato candidato) {
+    public Empresa getByCnpj(String cnpj) {
+        try (Session session = HibernateUtil.getSession()) {
+            return session.createQuery("from Empresa where cnpj = :cnpj", Empresa.class)
+                    .setParameter("cnpj", cnpj)
+                    .uniqueResult();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void save(Empresa empresa) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSession()) {
             transaction = session.beginTransaction();
-            session.persist(candidato);
+            session.persist(empresa);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -38,11 +50,11 @@ public class CandidatoDao {
         }
     }
 
-    public void update(Candidato candidato) {
+    public void update(Empresa empresa) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSession()) {
             transaction = session.beginTransaction();
-            session.merge(candidato);
+            session.merge(empresa);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -53,11 +65,11 @@ public class CandidatoDao {
         }
     }
 
-    public void delete(Candidato candidato) {
+    public void delete(Empresa empresa) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSession()) {
             transaction = session.beginTransaction();
-            session.remove(candidato);
+            session.remove(empresa);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {

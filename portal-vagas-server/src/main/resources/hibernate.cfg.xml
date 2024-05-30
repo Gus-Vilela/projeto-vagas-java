@@ -11,6 +11,7 @@
     <property name="dialect"> org.hibernate.dialect.MySQLDialect</property>
     <property name="show_sql">true</property>
     <mapping class="server.hibernate.models.Candidato"/>
+    <mapping class="server.hibernate.models.Empresa"/>
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

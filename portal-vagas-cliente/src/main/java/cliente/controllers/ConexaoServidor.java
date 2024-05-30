@@ -34,7 +34,7 @@ public class ConexaoServidor
         }
         try{
             SingletonEchoClient.getInstance(hostnameInput.getText());
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginCandidato.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("selecaoServico.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) connectBtn.getScene().getWindow();
             stage.setScene(new Scene(root));

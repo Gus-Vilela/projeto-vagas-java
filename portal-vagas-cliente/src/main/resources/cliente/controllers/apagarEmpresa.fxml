@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cliente.controllers.ApagarEmpresa">
+   <children>
+      <Label layoutX="140.0" layoutY="133.0" text="Tem certeza que deseja deletar seu cadastro?">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnDeletar" layoutX="221.0" layoutY="225.0" mnemonicParsing="false" onAction="#onClickDeletar" prefHeight="25.0" prefWidth="56.0" text="Sim" textFill="#067c16" />
+      <Button fx:id="btnCancelar" layoutX="324.0" layoutY="225.0" mnemonicParsing="false" onAction="#onClickCancelar" prefHeight="25.0" prefWidth="56.0" text="Não" textFill="#fc0000" />
+   </children>
+</AnchorPane>
