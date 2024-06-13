@@ -12,9 +12,11 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnMeuCadastro" layoutX="232.0" layoutY="139.0" mnemonicParsing="false" onAction="#onClickMeuCadastro" prefHeight="25.0" prefWidth="137.0" text="Meu cadastro" />
-      <Button fx:id="btnEditarCadastro" layoutX="232.0" layoutY="193.0" mnemonicParsing="false" onAction="#onClickAtualizarCadastro" prefHeight="25.0" prefWidth="137.0" text="Editar meu cadastro" />
-      <Button fx:id="btnApagarCadastro" layoutX="232.0" layoutY="248.0" mnemonicParsing="false" onAction="#onClickApagarCadastro" prefHeight="25.0" prefWidth="137.0" text="Apagar meu cadastro" />
-      <Button fx:id="btnLogout" layoutX="232.0" layoutY="304.0" mnemonicParsing="false" onAction="#onClickLogout" prefHeight="25.0" prefWidth="137.0" text="Logout" />
+      <Button fx:id="btnMeuCadastro" layoutX="137.0" layoutY="136.0" mnemonicParsing="false" onAction="#onClickMeuCadastro" prefHeight="25.0" prefWidth="137.0" text="Meu cadastro" />
+      <Button fx:id="btnEditarCadastro" layoutX="137.0" layoutY="190.0" mnemonicParsing="false" onAction="#onClickAtualizarCadastro" prefHeight="25.0" prefWidth="137.0" text="Editar meu cadastro" />
+      <Button fx:id="btnApagarCadastro" layoutX="137.0" layoutY="245.0" mnemonicParsing="false" onAction="#onClickApagarCadastro" prefHeight="25.0" prefWidth="137.0" text="Apagar meu cadastro" />
+      <Button fx:id="btnLogout" layoutX="137.0" layoutY="301.0" mnemonicParsing="false" onAction="#onClickLogout" prefHeight="25.0" prefWidth="137.0" text="Logout" />
+      <Button fx:id="btnCadastrarVaga" onAction="#onClickCadastrarVaga" layoutX="339.0" layoutY="137.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="Cadastrar Vaga" />
+      <Button fx:id="btnListarVagas" onAction="#onClickListarVagas" layoutX="339.0" layoutY="191.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="Minhas Vagas" />
    </children>
 </AnchorPane>

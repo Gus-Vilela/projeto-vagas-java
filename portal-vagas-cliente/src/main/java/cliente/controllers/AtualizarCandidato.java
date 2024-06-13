@@ -80,6 +80,7 @@ public class AtualizarCandidato {
             data.put("nome", nomeInput.getText());
             data.put("senha", senhaInput.getText());
             data.put("email", cliente.Session.getInstance().getEmail());
+            data.put("token", cliente.Session.getInstance().getToken());
 
             client.sendJson(data);
             String response = client.listenToServer();

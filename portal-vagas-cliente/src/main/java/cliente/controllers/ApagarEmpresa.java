@@ -34,6 +34,7 @@ public class ApagarEmpresa
 
         data.put("operacao", "apagarEmpresa");
         data.put("email", Session.getInstance().getEmail());
+        data.put("token", Session.getInstance().getToken());
 
         client.sendJson(data);
         String response = client.listenToServer();

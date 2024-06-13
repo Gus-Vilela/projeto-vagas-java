@@ -6,6 +6,7 @@ module vagas.portalvagascliente {
 
     opens cliente to javafx.fxml;
     opens cliente.controllers to javafx.fxml;
+    opens cliente.models to javafx.base;
     exports cliente;
     exports cliente.controllers;
 }

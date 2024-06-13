@@ -6,7 +6,7 @@ public class StatusUtil {
             case Double v -> v.intValue();
             case String s -> Integer.parseInt(s);
             case Integer i -> i;
-            case null, default -> throw new IllegalArgumentException("Formato de status inválido.");
+            case null, default -> throw new IllegalArgumentException("Formato de status inválido ou nulo");
         };
     }
 }

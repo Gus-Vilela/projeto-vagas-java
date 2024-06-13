@@ -5,6 +5,11 @@ import server.controllers.*;
 import server.controllers.Candidato.*;
 import com.google.gson.reflect.TypeToken;
 import server.controllers.Empresa.*;
+import server.controllers.Experiencia.ApagarExperiencias;
+import server.controllers.Experiencia.AtualizarExperiencia;
+import server.controllers.Experiencia.CadastrarExperiencia;
+import server.controllers.Experiencia.VisualizarExperiencias;
+import server.controllers.Vaga.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -45,6 +50,7 @@ class ClientHandler extends Thread {
 
                 try {
                     receivedData = gson.fromJson(inputLine, type);
+                    System.out.println("Server received: " + receivedData);
                 } catch (Exception e) {
                     System.out.println("Erro no formato da requisição");
                     out.println("Erro no formato da requisição");
@@ -52,6 +58,12 @@ class ClientHandler extends Thread {
                 }
 
                 String response = null;
+
+                if (receivedData.get("operacao") == null) {
+                    System.out.println("Operação não fornecida");
+                    out.println("Operação não fornecida");
+                    break;
+                }
 
                 switch ((String) receivedData.get("operacao")) {
                     case "loginCandidato":
@@ -86,6 +98,36 @@ class ClientHandler extends Thread {
                         break;
                     case "apagarEmpresa":
                         response = ApagarEmpresa.apagarEmpresa(receivedData, gson);
+                        break;
+                    case "cadastrarCompetenciaExperiencia":
+                        response = CadastrarExperiencia.cadastrarExperiencia(receivedData, gson);
+                        break;
+                    case "visualizarCompetenciaExperiencia":
+                        response = VisualizarExperiencias.visualizarExperiencias(receivedData, gson);
+                        break;
+                    case "apagarCompetenciaExperiencia":
+                        response = ApagarExperiencias.apagarExperiencias(receivedData, gson);
+                        break;
+                    case "atualizarCompetenciaExperiencia":
+                        response = AtualizarExperiencia.atualizarExperiencia(receivedData, gson);
+                        break;
+                     case "cadastrarVaga":
+                        response = CadastrarVaga.cadastrarVaga(receivedData, gson);
+                        break;
+                     case "listarVagas":
+                        response = ListarVagas.listarVagas(receivedData, gson);
+                        break;
+                     case "apagarVaga":
+                        response = ApagarVaga.apagarVaga(receivedData, gson);
+                        break;
+                     case "visualizarVaga":
+                        response = VisualizarVaga.visualizarVaga(receivedData, gson);
+                        break;
+                     case "atualizarVaga":
+                        response = AtualizarVaga.atualizarVaga(receivedData, gson);
+                        break;
+                    case "filtrarVagas":
+                        response = FiltrarVagas.filtrarVagas(receivedData, gson);
                         break;
                     default:
                         System.out.println("Operação não reconhecida");

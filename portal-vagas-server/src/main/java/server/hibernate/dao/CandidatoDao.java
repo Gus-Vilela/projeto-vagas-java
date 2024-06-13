@@ -24,8 +24,10 @@ public class CandidatoDao {
     }
 
     public void save(Candidato candidato) {
+        Session session;
         Transaction transaction = null;
-        try (Session session = HibernateUtil.getSession()) {
+        try  {
+            session = HibernateUtil.getSession();
             transaction = session.beginTransaction();
             session.persist(candidato);
             transaction.commit();
@@ -33,14 +35,16 @@ public class CandidatoDao {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             throw e;
         }
     }
 
     public void update(Candidato candidato) {
+        Session session;
         Transaction transaction = null;
-        try (Session session = HibernateUtil.getSession()) {
+        try  {
+            session = HibernateUtil.getSession();
             transaction = session.beginTransaction();
             session.merge(candidato);
             transaction.commit();
@@ -48,14 +52,16 @@ public class CandidatoDao {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             throw e;
         }
     }
 
     public void delete(Candidato candidato) {
+        Session session;
         Transaction transaction = null;
-        try (Session session = HibernateUtil.getSession()) {
+        try  {
+            session = HibernateUtil.getSession();
             transaction = session.beginTransaction();
             session.remove(candidato);
             transaction.commit();
@@ -63,7 +69,7 @@ public class CandidatoDao {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             throw e;
         }
     }

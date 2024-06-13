@@ -41,6 +41,7 @@ public class ApagarCandidato
 
         data.put("operacao", "apagarCandidato");
         data.put("email", Session.getInstance().getEmail());
+        data.put("token", Session.getInstance().getToken());
 
         client.sendJson(data);
         String response = client.listenToServer();

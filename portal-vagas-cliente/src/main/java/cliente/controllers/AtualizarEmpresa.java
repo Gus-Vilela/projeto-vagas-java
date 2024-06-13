@@ -135,6 +135,7 @@ public class AtualizarEmpresa
             data.put("razaoSocial", razaoSocialInput.getText());
             data.put("descricao", descricaoInput.getText());
             data.put("ramo", ramoInput.getText());
+            data.put("token", cliente.Session.getInstance().getToken());
 
             client.sendJson(data);
             String response = client.listenToServer();

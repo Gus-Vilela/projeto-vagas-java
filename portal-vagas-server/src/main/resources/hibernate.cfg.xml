@@ -12,6 +12,11 @@
     <property name="show_sql">true</property>
     <mapping class="server.hibernate.models.Candidato"/>
     <mapping class="server.hibernate.models.Empresa"/>
+    <mapping class="server.hibernate.models.Competencia"/>
+    <mapping class="server.hibernate.models.Experiencia"/>
+    <mapping class="server.hibernate.models.Vaga"/>
+    <mapping class="server.hibernate.models.Requisito"/>
+
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

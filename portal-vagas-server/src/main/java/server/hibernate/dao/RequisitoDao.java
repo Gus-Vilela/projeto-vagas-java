@@ -2,46 +2,36 @@ package server.hibernate.dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import server.hibernate.models.Empresa;
+import server.hibernate.models.Requisito;
 import server.hibernate.utils.HibernateUtil;
 
-public class EmpresaDao {
+import java.util.List;
 
-    public Empresa get(int id) {
+public class RequisitoDao {
+
+    public Requisito get(int id) {
         try (Session session = HibernateUtil.getSession()) {
-            return session.get(Empresa.class, id);
-        } catch (Exception e) {
-            return null;
+            return session.get(Requisito.class, id);
         }
     }
 
-    public Empresa getByEmail(String email) {
+    public List<Requisito> fetchAllByVagaId(int vagaId) {
         try (Session session = HibernateUtil.getSession()) {
-            return session.createQuery("from Empresa where email = :email", Empresa.class)
-                    .setParameter("email", email)
-                    .uniqueResult();
-        } catch (Exception e) {
-            return null;
+            return session.createQuery("SELECT r FROM Requisito r WHERE r.idVaga.id = :vagaId", Requisito.class)
+                    .setParameter("vagaId", vagaId)
+                    .getResultList();
         }
     }
 
-    public Empresa getByCnpj(String cnpj) {
-        try (Session session = HibernateUtil.getSession()) {
-            return session.createQuery("from Empresa where cnpj = :cnpj", Empresa.class)
-                    .setParameter("cnpj", cnpj)
-                    .uniqueResult();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public void save(Empresa empresa) {
+    public void deleteAllByVagaId(int vagaId) {
         Session session;
         Transaction transaction = null;
         try {
             session = HibernateUtil.getSession();
             transaction = session.beginTransaction();
-            session.persist(empresa);
+            session.createQuery("DELETE FROM Requisito r WHERE r.idVaga.id = :vagaId")
+                    .setParameter("vagaId", vagaId)
+                    .executeUpdate();
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -52,13 +42,29 @@ public class EmpresaDao {
         }
     }
 
-    public void update(Empresa empresa) {
+    public void save(Requisito requisito) {
         Session session;
         Transaction transaction = null;
-        try  {
+        try {
             session = HibernateUtil.getSession();
             transaction = session.beginTransaction();
-            session.merge(empresa);
+            session.persist(requisito);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw e;
+        }
+    }
+
+    public void update(Requisito requisito) {
+        Session session;
+        Transaction transaction = null;
+        try {
+            session = HibernateUtil.getSession();
+            transaction = session.beginTransaction();
+            session.merge(requisito);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -69,13 +75,13 @@ public class EmpresaDao {
         }
     }
 
-    public void delete(Empresa empresa) {
+    public void delete(Requisito requisito) {
         Session session;
         Transaction transaction = null;
         try {
             session = HibernateUtil.getSession();
             transaction = session.beginTransaction();
-            session.remove(empresa);
+            session.remove(requisito);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {

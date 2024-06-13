@@ -24,6 +24,10 @@ public class EmpresaHome {
     private Button btnMeuCadastro;
     @javafx.fxml.FXML
     private Button btnApagarCadastro;
+    @javafx.fxml.FXML
+    private Button btnCadastrarVaga;
+    @javafx.fxml.FXML
+    private Button btnListarVagas;
 
     @javafx.fxml.FXML
     public void onClickApagarCadastro(ActionEvent actionEvent) throws IOException {
@@ -35,12 +39,22 @@ public class EmpresaHome {
     }
 
     @javafx.fxml.FXML
+    public void onClickCadastrarVaga(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("cadastrarVaga.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) btnCadastrarVaga.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @javafx.fxml.FXML
     public void onClickAtualizarCadastro(ActionEvent actionEvent) throws IOException {
         SingletonEchoClient client = SingletonEchoClient.getInstance();
 
         Map<String, Object> data = new HashMap<>();
         data.put("operacao", "visualizarEmpresa");
         data.put("email", Session.getInstance().getEmail());
+        data.put("token", Session.getInstance().getToken());
 
         client.sendJson(data);
         String response = client.listenToServer();
@@ -125,6 +139,7 @@ public class EmpresaHome {
         Map<String, Object> data = new HashMap<>();
         data.put("operacao", "visualizarEmpresa");
         data.put("email", Session.getInstance().getEmail());
+        data.put("token", Session.getInstance().getToken());
 
         client.sendJson(data);
         String response = client.listenToServer();
@@ -167,5 +182,14 @@ public class EmpresaHome {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    @javafx.fxml.FXML
+    public void onClickListarVagas(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("listarVagas.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) btnListarVagas.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

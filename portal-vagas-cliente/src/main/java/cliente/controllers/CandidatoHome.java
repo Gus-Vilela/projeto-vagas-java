@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CandidatoHome
@@ -24,9 +25,31 @@ public class CandidatoHome
     private Button btnEditarCadastro;
     @javafx.fxml.FXML
     private Button btnApagarCadastro;
+    @javafx.fxml.FXML
+    private Button btnCadastrarExperiencia;
+    @javafx.fxml.FXML
+    private Button btnListarExperiencias;
 
     @javafx.fxml.FXML
     public void initialize() {
+    }
+
+    @javafx.fxml.FXML
+    public void onClickListarExperiencias() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("visualizarExperiencias.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) btnListarExperiencias.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @javafx.fxml.FXML
+    public void onClickCadastrarExperiencia() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("cadastrarExperiencia.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) btnCadastrarExperiencia.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @javafx.fxml.FXML
@@ -36,6 +59,7 @@ public class CandidatoHome
         Map<String, Object> data = new HashMap<>();
         data.put("operacao", "visualizarCandidato");
         data.put("email", Session.getInstance().getEmail());
+        data.put("token", Session.getInstance().getToken());
 
         client.sendJson(data);
         String response = client.listenToServer();
@@ -47,7 +71,7 @@ public class CandidatoHome
 
             int status = StatusUtil.getStatus(statusObject);
 
-            if (status == 201 && receivedData.get("operacao").equals("visualizarCandidato")
+            if (status == 201 && receivedData.get("operacao")!=null && receivedData.get("operacao").equals("visualizarCandidato")
             ) {
                 String email = Session.getInstance().getEmail();
                 String nome = (String) receivedData.get("nome");
@@ -81,6 +105,7 @@ public class CandidatoHome
         Map<String, Object> data = new HashMap<>();
         data.put("operacao", "visualizarCandidato");
         data.put("email", Session.getInstance().getEmail());
+        data.put("token", Session.getInstance().getToken());
 
         client.sendJson(data);
         String response = client.listenToServer();

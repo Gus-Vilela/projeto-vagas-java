@@ -14,11 +14,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="com.intellij.jpb.JpaEntity" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -39,6 +43,7 @@
     &quot;Application.Application.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Maven.portal-vagas-cliente [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.portal-vagas-cliente [compile].executor&quot;: &quot;Run&quot;,
     &quot;Maven.portal-vagas-cliente [install].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
@@ -62,7 +67,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cliente.Application" />
       <module name="portal-vagas-cliente" />
@@ -91,8 +96,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Application" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Application" />
       </list>
     </recent_temporary>
   </component>
@@ -117,10 +122,32 @@
       <workItem from="1716738288927" duration="11340000" />
       <workItem from="1716846418907" duration="3897000" />
       <workItem from="1717019116287" duration="2302000" />
+      <workItem from="1717103246421" duration="32000" />
+      <workItem from="1717362905890" duration="4835000" />
+      <workItem from="1717368509219" duration="12942000" />
+      <workItem from="1717454541066" duration="10112000" />
+      <workItem from="1717537213861" duration="12418000" />
+      <workItem from="1717553204751" duration="4042000" />
+      <workItem from="1717622850206" duration="6010000" />
+      <workItem from="1717982351719" duration="601000" />
+      <workItem from="1718053924251" duration="16789000" />
+      <workItem from="1718162795948" duration="1256000" />
+      <workItem from="1718226667592" duration="7319000" />
+      <workItem from="1718234103707" duration="1164000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -6,34 +6,25 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "candidato")
-public class Candidato {
+@Table(name = "competencia")
+public class Competencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "nome", nullable = false, length = 50)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "senha", nullable = false, length = 50)
-    private String senha;
-
-    @Column(name = "email", nullable = false, length = 30)
-    private String email;
-
-    @OneToMany(mappedBy = "idCandidato")
+    @OneToMany(mappedBy = "idCompetencia")
     private Set<Experiencia> experiencias = new LinkedHashSet<>();
 
-    public Candidato() {
+    public Competencia(String nome) {
+        this.nome = nome;
     }
 
-    public Candidato(String nome, String senha, String email) {
-        this.nome = nome;
-        this.senha = senha;
-        this.email = email;
+    public Competencia() {
     }
-    
 
     public Integer getId() {
         return id;
@@ -49,22 +40,6 @@ public class Candidato {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Set<Experiencia> getExperiencias() {
